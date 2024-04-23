@@ -1,10 +1,110 @@
 ﻿using System;
-public class XYL {
+public class RandomArray {
     public static void Main() {
-        XYL.rew();
+
+        int[] array = new int[100];
+        for (int i = 0; i < 100; i++) {
+            array[i] = 0;
+        }
+
+        Random rand = new Random();
+        Random rand4 = new Random();
+
+        int nextRand = -1;
+        int randnum1 = rand.Next(0, 100);
+        Console.WriteLine("Random Array: " + randnum1);
+        
+        Rand4(array, randnum1, 10, ref nextRand);
+
+        for (int i = 0; i < 30; i++) {
+            Rand4(array, randnum1, 10, ref nextRand);
+        }
+
+        // int next = rand4.Next(1, 5);
+
+        // if (next == 1) {
+        //     if (randnum1 + 1 < 0 && randnum1 + 1 > 100) {
+        //         return;
+        //     }
+        //     array[randnum1 + 1] = 1;
+        // } else if (next == 2) {
+        //     if (randnum1 - 1 < 0 && randnum1 - 1 > 100) {
+        //         return;
+        //     }
+        //     array[randnum1 - 1] = 2;
+        // } else if (next == 3) {
+        //     if (randnum1 + 10 < 0 && randnum1 + 10 > 100) {
+        //         return;
+        //     }
+        //     array[randnum1 + 10] = 3;
+        // } else if (next == 4) {
+        //     if (randnum1 - 10 < 0 && randnum1 - 10 > 100) {
+        //         return;
+        //     }
+        //     array[randnum1 - 10] = 4;
+        // } else if (next == 5) {
+        //     Console.Write("错误");
+        // }
+
+
+        // Console.WriteLine("Random Array: " + next);
+
+        Console.WriteLine("Random Array: " + array[randnum1]);
+        Console.WriteLine();
+
+
+        for (int i = 1; i < 101; i++) {
+            int tem = array[i - 1];
+            Console.Write(tem);
+            if (i % 10 == 0) {
+                Console.WriteLine();
+            } else {
+                Console.Write(" ");
+            }
+        }
+
+        Console.WriteLine();
+
     }
-    public static void rew() {
-        Console.WriteLine("hesss");
-        Console.ReadKey();
+
+    public static void Rand4(int[] array, int rand, int row, ref int nextRand) {
+        array[rand] = 1;
+
+        Random tem = new Random();
+        int next = tem.Next(1, 5);
+        if (next == 1) {
+            if (rand + 1 < 1 && rand + 1 > 101) {
+                return;
+            }
+            nextRand = rand + 1;
+            array[rand + 1] = 1;
+
+        } else if (next == 2) {
+            if (rand - 1 < 1 && rand - 1 > 101) {
+                return;
+            }
+            nextRand = rand - 1;
+            array[rand - 1] = 2;
+
+        } else if (next == 3) {
+            if (rand + row < 1 && rand + row > 101) {
+                return;
+            }
+
+            nextRand = rand + row;
+            array[rand + row] = 3;
+
+        } else if (next == 4) {
+            if (rand - row < 1 && rand - row > 101) {
+                return;
+            }
+            nextRand = rand - row;
+            array[rand - row] = 4;
+
+        } else {
+            Console.Write("错误");
+        }
     }
+
+
 }
