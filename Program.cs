@@ -10,14 +10,12 @@ public class RandomArray {
         Random rand = new Random();
         Random rand4 = new Random();
 
-        int nextRand = -1;
         int randnum1 = rand.Next(0, 100);
         Console.WriteLine("Random Array: " + randnum1);
-        
-        Rand4(array, randnum1, 10, ref nextRand);
+
 
         for (int i = 0; i < 30; i++) {
-            Rand4(array, randnum1, 10, ref nextRand);
+            Rand4(array,ref randnum1, 10);
         }
 
         // int next = rand4.Next(1, 5);
@@ -49,7 +47,7 @@ public class RandomArray {
 
         // Console.WriteLine("Random Array: " + next);
 
-        Console.WriteLine("Random Array: " + array[randnum1]);
+        // Console.WriteLine("Random Array: " + array[randnum1]);
         Console.WriteLine();
 
 
@@ -67,7 +65,7 @@ public class RandomArray {
 
     }
 
-    public static void Rand4(int[] array, int rand, int row, ref int nextRand) {
+    public static void Rand4(int[] array, ref int rand, int row) {
         array[rand] = 1;
 
         Random tem = new Random();
@@ -76,14 +74,15 @@ public class RandomArray {
             if (rand + 1 < 1 && rand + 1 > 101) {
                 return;
             }
-            nextRand = rand + 1;
+            rand = rand + 1;
+
             array[rand + 1] = 1;
 
         } else if (next == 2) {
             if (rand - 1 < 1 && rand - 1 > 101) {
                 return;
             }
-            nextRand = rand - 1;
+            rand = rand - 1;
             array[rand - 1] = 2;
 
         } else if (next == 3) {
@@ -91,14 +90,14 @@ public class RandomArray {
                 return;
             }
 
-            nextRand = rand + row;
+            rand = rand + row;
             array[rand + row] = 3;
 
         } else if (next == 4) {
             if (rand - row < 1 && rand - row > 101) {
                 return;
             }
-            nextRand = rand - row;
+            rand = rand - row;
             array[rand - row] = 4;
 
         } else {
