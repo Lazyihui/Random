@@ -1,7 +1,19 @@
 ﻿using System;
+using Raylib_cs;
 public class RandomArray {
     public static void Main() {
+        Raylib.InitWindow(600, 400, "Random Array");
 
+        while(!Raylib.WindowShouldClose()) {
+            Raylib.BeginDrawing();
+            Raylib.ClearBackground(Color.White);
+
+
+            Raylib.EndDrawing();
+        }
+    }
+
+    public void R() {
         int[] array = new int[100];
         for (int i = 0; i < 100; i++) {
             array[i] = 0;
@@ -62,7 +74,6 @@ public class RandomArray {
         }
 
         Console.WriteLine();
-
     }
 
     public static void Rand4(int[] array, ref int rand, int row) {
