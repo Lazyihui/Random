@@ -11,11 +11,11 @@ public class RandomArray {
         Random rand4 = new Random();
 
         int randnum1 = rand.Next(0, 100);
-        Console.WriteLine("Random Array: " + randnum1);
+        // Console.WriteLine("Random Array: " + randnum1);
 
 
         for (int i = 0; i < 30; i++) {
-            Rand4(array,ref randnum1, 10);
+            Rand4(array, ref randnum1, 10);
         }
 
         // int next = rand4.Next(1, 5);
@@ -51,7 +51,7 @@ public class RandomArray {
         Console.WriteLine();
 
 
-        for (int i = 1; i < 101; i++) {
+        for (int i = 1; i <= 100; i++) {
             int tem = array[i - 1];
             Console.Write(tem);
             if (i % 10 == 0) {
@@ -71,34 +71,38 @@ public class RandomArray {
         Random tem = new Random();
         int next = tem.Next(1, 5);
         if (next == 1) {
-            if (rand + 1 < 1 && rand + 1 > 101) {
-                return;
+            if (rand + 1 >= 0 && rand + 1 < 100) {
+                rand = rand + 1;
+                Console.WriteLine("Random Array:1= " + rand);
+                array[rand] = 1;
             }
-            rand = rand + 1;
 
-            array[rand + 1] = 1;
 
         } else if (next == 2) {
-            if (rand - 1 < 1 && rand - 1 > 101) {
-                return;
+            if (rand - 1 >= 0 && rand - 1 < 100) {
+                rand = rand - 1;
+                Console.WriteLine("Random Array:2= " + rand);
+                array[rand] = 2;
             }
-            rand = rand - 1;
-            array[rand - 1] = 2;
+
 
         } else if (next == 3) {
-            if (rand + row < 1 && rand + row > 101) {
+
+            if (rand + row >= 0 && rand + row < 100) {
+                rand = rand + row;
+                Console.WriteLine("Random Array:3= " + rand);
+                array[rand] = 3;
                 return;
             }
 
-            rand = rand + row;
-            array[rand + row] = 3;
 
         } else if (next == 4) {
-            if (rand - row < 1 && rand - row > 101) {
-                return;
+            if (rand - row >= 0 && rand - row < 100) {
+                rand = rand - row;
+                Console.WriteLine("Random Array:4=" + rand);
+                array[rand] = 4;
             }
-            rand = rand - row;
-            array[rand - row] = 4;
+
 
         } else {
             Console.Write("错误");
