@@ -1,16 +1,65 @@
-﻿using System;
+﻿using System.Numerics;
+using System.Collections;
+using System.Collections.Generic;
 using Raylib_cs;
 public class RandomArray {
     public static void Main() {
         Raylib.InitWindow(600, 400, "Random Array");
 
-        while(!Raylib.WindowShouldClose()) {
+        Random randomx = new Random();
+
+        Random randomy = new Random();
+
+
+        int randV2x = (int)randomx.Next(0, 600);
+
+        int randV2y = (int)randomy.Next(0, 400);
+
+        Vector2 vector2 = new Vector2(randV2x, randV2y);
+        Vector2 size = new Vector2(10, 10);
+
+
+        while (!Raylib.WindowShouldClose()) {
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.White);
+
+            // Vector2 mouse = Raylib.GetMousePosition();
+            for (int i = 0; i < 100; i++) {
+                Raylib.DrawRectangleV(vector2, size, Color.Black);
+                RandVector2(ref vector2, 10);
+            }
+
+            // Raylib.DrawText("Press R to generate random array", 200, 180, 20, Color.Red);
+            // 位置 长宽 颜色
 
 
             Raylib.EndDrawing();
         }
+    }
+
+    public static void RandVector2(ref Vector2 vector2, int size) {
+        Random random = new Random();
+        int next = random.Next(1, 5);
+
+        if (next == 1) {
+            if (vector2.X + size >= 0 && vector2.X + size < 600) {
+                vector2.X = vector2.X + size;
+            }
+
+        } else if (next == 2) {
+            if (vector2.X - size >= 0 && vector2.X - size < 600) {
+                vector2.X = vector2.X - size;
+            }
+        } else if (next == 3) {
+            if (vector2.Y + size >= 0 && vector2.Y + size < 400) {
+                vector2.Y = vector2.Y + size;
+            }
+        } else if (next == 4) {
+            if (vector2.Y - size >= 0 && vector2.Y - size < 400) {
+                vector2.Y = vector2.Y - size;
+            }
+        }
+
     }
 
     public void R() {
@@ -29,32 +78,6 @@ public class RandomArray {
         for (int i = 0; i < 30; i++) {
             Rand4(array, ref randnum1, 10);
         }
-
-        // int next = rand4.Next(1, 5);
-
-        // if (next == 1) {
-        //     if (randnum1 + 1 < 0 && randnum1 + 1 > 100) {
-        //         return;
-        //     }
-        //     array[randnum1 + 1] = 1;
-        // } else if (next == 2) {
-        //     if (randnum1 - 1 < 0 && randnum1 - 1 > 100) {
-        //         return;
-        //     }
-        //     array[randnum1 - 1] = 2;
-        // } else if (next == 3) {
-        //     if (randnum1 + 10 < 0 && randnum1 + 10 > 100) {
-        //         return;
-        //     }
-        //     array[randnum1 + 10] = 3;
-        // } else if (next == 4) {
-        //     if (randnum1 - 10 < 0 && randnum1 - 10 > 100) {
-        //         return;
-        //     }
-        //     array[randnum1 - 10] = 4;
-        // } else if (next == 5) {
-        //     Console.Write("错误");
-        // }
 
 
         // Console.WriteLine("Random Array: " + next);
