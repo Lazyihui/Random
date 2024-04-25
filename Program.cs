@@ -18,15 +18,22 @@ public class RandomArray {
         Vector2 vector2 = new Vector2(randV2x, randV2y);
         Vector2 size = new Vector2(10, 10);
 
+        Vector2[] vector2s = new Vector2[1000];
+
+        for (int i = 0; i < 1000; i++) {
+            RandVector2(ref vector2, 10);
+            vector2s[i] = vector2;
+        }
+
 
         while (!Raylib.WindowShouldClose()) {
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.White);
 
             // Vector2 mouse = Raylib.GetMousePosition();
-            for (int i = 0; i < 100; i++) {
-                Raylib.DrawRectangleV(vector2, size, Color.Black);
-                RandVector2(ref vector2, 10);
+            for (int i = 0; i < 1000; i++) {
+                Vector2 vector22 = vector2s[i];
+                Raylib.DrawRectangleV(vector22, size, Color.Black);
             }
 
             // Raylib.DrawText("Press R to generate random array", 200, 180, 20, Color.Red);
