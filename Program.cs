@@ -4,44 +4,67 @@ using System.Collections.Generic;
 using Raylib_cs;
 public class RandomArray {
     public static void Main() {
-        Raylib.InitWindow(600, 400, "Random Array");
 
-        Random randomx = new Random();
+        // 计算器
+        List<int> allInt = new List<int>();
+        List<float> allFloat = new List<float>();
 
-        Random randomy = new Random();
+        double result = 0;
+        allInt.Add(1);
+        allInt.Add(2);
+        allFloat.Add(1.1f);
 
-
-        int randV2x = (int)randomx.Next(0, 600);
-
-        int randV2y = (int)randomy.Next(0, 400);
-
-        Vector2 vector2 = new Vector2(randV2x, randV2y);
-        Vector2 size = new Vector2(10, 10);
-
-        Vector2[] vector2s = new Vector2[1000];
-
-        for (int i = 0; i < 1000; i++) {
-            RandVector2(ref vector2, 10);
-            vector2s[i] = vector2;
+        // foreach (var item in allInt) {
+        //     result += item;
+        // }
+        foreach (var item in allFloat) {
+            result += item;
         }
 
-
-        while (!Raylib.WindowShouldClose()) {
-            Raylib.BeginDrawing();
-            Raylib.ClearBackground(Color.White);
-
-            // Vector2 mouse = Raylib.GetMousePosition();
-            for (int i = 0; i < 1000; i++) {
-                Vector2 vector22 = vector2s[i];
-                Raylib.DrawRectangleV(vector22, size, Color.Black);
-            }
-
-            // Raylib.DrawText("Press R to generate random array", 200, 180, 20, Color.Red);
-            // 位置 长宽 颜色
-
-
-            Raylib.EndDrawing();
+        for (int i = 0; i < allInt.Count; i++) {
+            result += allInt[i];
         }
+
+        Console.WriteLine("result: " + result);
+
+        // Raylib.InitWindow(600, 400, "Random Array");
+
+        // Random randomx = new Random();
+
+        // Random randomy = new Random();
+
+
+        // int randV2x = (int)randomx.Next(0, 600);
+
+        // int randV2y = (int)randomy.Next(0, 400);
+
+        // Vector2 vector2 = new Vector2(randV2x, randV2y);
+        // Vector2 size = new Vector2(10, 10);
+
+        // Vector2[] vector2s = new Vector2[1000];
+
+        // for (int i = 0; i < 1000; i++) {
+        //     RandVector2(ref vector2, 10);
+        //     vector2s[i] = vector2;
+        // }
+
+
+        // while (!Raylib.WindowShouldClose()) {
+        //     Raylib.BeginDrawing();
+        //     Raylib.ClearBackground(Color.White);
+
+        //     // Vector2 mouse = Raylib.GetMousePosition();
+        //     for (int i = 0; i < 1000; i++) {
+        //         Vector2 vector22 = vector2s[i];
+        //         Raylib.DrawRectangleV(vector22, size, Color.Black);
+        //     }
+
+        //     // Raylib.DrawText("Press R to generate random array", 200, 180, 20, Color.Red);
+        //     // 位置 长宽 颜色
+
+
+        //     Raylib.EndDrawing();
+        // }
     }
 
     public static void RandVector2(ref Vector2 vector2, int size) {
