@@ -12,21 +12,29 @@ public class RandomArray {
         double result = 0;
         allInt.Add(1);
         allInt.Add(2);
-        allFloat.Add(1.1f);
+        allInt.Add(3);
+        allInt.Add(4);
+        allInt.Add(5);
 
         // foreach (var item in allInt) {
         //     result += item;
         // }
-        foreach (var item in allFloat) {
-            result += item;
-        }
+        // foreach (var item in allFloat) {
+        //     result += item;
+        // }
+
+        // for (int i = 0; i < allInt.Count; i++) {
+        //     result += allInt[i];
+        allInt.Remove(allInt.Count - 3);
+        allInt.RemoveAt(allInt.Count - 3);
 
         for (int i = 0; i < allInt.Count; i++) {
-            result += allInt[i];
+
+
+            Console.WriteLine(allInt[i]);
+            Console.WriteLine("\r\n");
+
         }
-
-        Console.WriteLine("result: " + result);
-
         // Raylib.InitWindow(600, 400, "Random Array");
 
         // Random randomx = new Random();
