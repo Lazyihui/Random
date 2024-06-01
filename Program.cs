@@ -1,15 +1,40 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using Raylib_cs;
 public class RandomArray {
     public static void Main() {
 
-        // 计算器
+        int [] array = new int[10]{1,2,3,4,5,6,7,8,9,10};
+
+        int count = array.Length;
+
+        while (count > 1) {
+            count--;
+            int index = new System.Random().Next(count + 1);
+            Console.WriteLine("index: " + index);
+            int temp = array[index];
+            array[index] = array[count];
+            array[count] = temp;
+        }
+
+        Random random = new Random();
+        random.Next(0, 10);
+
+        for (int i = 0; i < array.Length; i++) {
+            System.Console.WriteLine(array[i]);
+        }
+        
+
+
+
+    }
+
+    public static void Rand5() {
         List<int> allInt = new List<int>();
         List<float> allFloat = new List<float>();
 
-        double result = 0;
         allInt.Add(1);
         allInt.Add(2);
         allInt.Add(3);
